@@ -27,7 +27,7 @@ public class Estudiante extends Persona{
         //////definimos los atributos propios del objeto/////////
         this.carnet=carnet;
         this.numeroMaterias=numeroMaterias;
-        this.promedioNotas=numeroMaterias;
+        this.promedioNotas=promedioNotas;
     }
 
    //// public Estudiante() {
