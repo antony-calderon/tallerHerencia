@@ -1,6 +1,8 @@
 
 package herencia;
 
+import javax.swing.JOptionPane;
+
 
 public class Estudiante extends Persona{
     
@@ -8,6 +10,12 @@ public class Estudiante extends Persona{
     private String carnet;
     private double promedioNotas;
     private int numeroMaterias; 
+    
+    ///constructor de la clase////
+    public Estudiante()
+    {
+        // TODO Auto-generated constructor stub
+    }
     
     /////////constructor de la subclase////////////////////
     public Estudiante(String nombre, String apellido, int edad, int peso, String carnet,
@@ -22,9 +30,9 @@ public class Estudiante extends Persona{
         this.promedioNotas=numeroMaterias;
     }
 
-    private Estudiante() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   //// public Estudiante() {
+     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   // }
     
     ///////metodos de encapsulamiento (get y set)////////
    
@@ -71,7 +79,7 @@ public class Estudiante extends Persona{
     
     ////metodo para solicitar datos del estudiante///////
     public Estudiante ingresarDatosEstudiante(){
-        Estudiante nuevoEstudiante=new Estudiante();
+        Estudiante nuevoEstudiante = new Estudiante();
         String nombre = "";
         String apellido = "";
         int edad = 0;
@@ -90,10 +98,11 @@ public class Estudiante extends Persona{
         numeroMaterias=leerDatoTipoEntero("cantidad de materias vistas");
         
         ////obtener los datos que no hacen parte de la clase/////
-        for(int i=0;i>=numeroMaterias;i++){
-            notas=leerDatoTipoReal("ingrese la nota de la materia");
+        for(int i=0;i<numeroMaterias;i++){
+            notas=Integer.parseInt(JOptionPane.showInputDialog("nota de la materia"));
             totalNotas=totalNotas+notas;
         }
+       
         
         /////calculamos el promedio/////////
         promedio=calcularPromedio(totalNotas, numeroMaterias);
@@ -105,9 +114,20 @@ public class Estudiante extends Persona{
         nuevoEstudiante.setPeso(peso);
         nuevoEstudiante.setCarnet(carnet);
         nuevoEstudiante.setNumeroMaterias(numeroMaterias);
-        nuevoEstudiante.setPromedioNotas(promedioNotas);
+        nuevoEstudiante.setPromedioNotas(promedio);
         
         return (nuevoEstudiante);
+    }
+    
+    /////metodo para imprimir el reporte de status del estudiante/////
+    public void imprimirReporteEstadoEstudiante(){
+        /////imprimimos a travez de la herencia los datos del estudiante////
+        imprimirDatosPersona();
+        
+        //////ahora imprimimos los datos propios del estudiante////////
+        JOptionPane.showMessageDialog(null, "El carnet del estudiante es: "+carnet);
+        JOptionPane.showMessageDialog(null, "El numero de materias que ve el estudiante es: "+numeroMaterias);
+        JOptionPane.showMessageDialog(null, "El promedio de notas del estudiante es "+promedioNotas);
     }
     
     

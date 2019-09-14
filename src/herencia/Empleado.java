@@ -6,9 +6,7 @@ import javax.swing.JOptionPane;
 
 public class Empleado extends Persona{
     
-/************************************/
-/************************************/
-/************************************/
+
 //Atributos de la subclase
 private double salario;
 private String codigoLaboral;

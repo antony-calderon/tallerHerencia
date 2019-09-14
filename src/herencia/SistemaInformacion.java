@@ -52,7 +52,17 @@ public class SistemaInformacion {
                     manejadorEmpleado = manejadorEmpleado.ingresarDatosEmpleado();
 //Mostramos el reporte de datos
                     manejadorEmpleado.imprimirReporteEstadoEmpleado();
-                } else if (opcion == 3) {
+                }else if(opcion==2){
+                    JOptionPane.showMessageDialog(null, "Procesando datos del estudiante");
+                    Estudiante manejadorEstudiante=new Estudiante();
+                    
+                    //leemos datos///
+                    manejadorEstudiante = manejadorEstudiante.ingresarDatosEstudiante();
+                    
+                    //mostrar el reporte de datos//
+                    manejadorEstudiante.imprimirReporteEstadoEstudiante();
+                }
+                else if (opcion == 3) {
                     JOptionPane.showMessageDialog(null, "Saliendo del Sistema");
                     break;
                 } else {
